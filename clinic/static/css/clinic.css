@@ -1,0 +1,86 @@
+h2 a {
+	text-decoration: none;
+	color: black;
+}
+
+@media (min-width: 400px) {
+	div.language, div.terms {
+		text-align: right;
+	}
+}
+
+.start-buttons a {
+	text-decoration: none;
+	color: #374b4a;
+}
+
+.start-button {
+	border-radius: 5px;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+.start-button h4 {
+	font-weight: bold;
+}
+
+.start-button.patient {
+	border: 5px solid #88d9e6;
+}
+
+.start-button.patient:hover {
+	background-color: #e0f8fc;
+}
+
+.start-button.doctor {
+	border: 5px solid #8b8bae;
+}
+
+.start-button.doctor:hover {
+	background-color: #ededfc;
+}
+
+.row.top, .row.footer, .row.self-cert {
+	margin-top: 20px;
+}
+
+.volunteer .button-primary {
+	margin-top: 15px;
+}
+
+.volunteer #id_languages {
+	list-style-type: none;
+}
+
+.volunteer #id_languages label {
+	font-weight: normal;
+}
+
+.volunteer #id_languages input {
+	margin-right: .5rem;
+}
+
+.volunteer input[type="checkbox"] {
+	margin-bottom: 0;
+}
+
+.volunteer .self-cert .label-body {
+	display: inline;
+}
+
+ul.errorlist {
+	margin-bottom: 5px;
+}
+
+ul.errorlist li {
+	list-style-type: none;
+	border: 2px solid red;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 2px 5px;
+}
+
+#remote-media {
+	width: 640px;
+	height: 480px;
+}

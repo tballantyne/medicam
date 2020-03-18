@@ -1,0 +1,75 @@
+{% extends "clinic/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="container volunteer">
+  <div class="row top">
+    <h2><a href="{% url "index" %}">COVID-19 Doctor</a></h2>
+    <h4>Volunteer to video chat</h4>
+    <p>
+      Please complete this form.
+    </p>
+    <p>
+      <b>We aim to verify your credentials within a few minutes.</b>
+      After verification, you will immediately be available for video chat sessions.
+      Your verification status will be saved on this device.
+    </p>
+
+    <form action="{% url "volunteer" %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="six columns">
+          {{ form.name.label_tag }}
+          {{ form.name.errors }}
+          {% render_field form.name class="u-full-width" %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="six columns">
+          {{ form.credentials.label_tag }}
+          {{ form.credentials.errors }}
+          {{ form.credentials }}
+        </div>
+        <div class="six columns">
+          Acceptable credentials:
+          <ul>
+            <li>Medical or nursing license</li>
+            <li>Proof of enrollment at an in-person medical or nursing school</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="six columns">
+          <b>Languages spoken fluently:</b>
+          {{ form.languages.errors }}
+          {{ form.languages }}
+        </div>
+      </div>
+
+      <div class="row test-cam">
+        <div class="six columns">
+          <label for="test-cam">Check your webcam:</label>
+          <input class="button" type="button" value="Test camera">
+        </div>
+      </div>
+
+      <div class="row self-cert">
+        <b>Confirm the following:</b>
+        {{ form.self_certification_questions.errors }}
+        {% for value, text in form.self_certification_questions.field.choices %}
+          <label for="id_self_certification_questions_{{ value }}">
+            <input type="checkbox" id="id_self_certification_questions_{{ value }}" name="self_certification_questions" value="{{ value }}"{% with v=value|stringformat:"i" %}{% if v in form.self_certification_questions.value %} checked{% endif %}{% endwith %}>
+            <span class="label-body">{{ text|safe }}</span>
+          </label>
+        {% endfor %}
+      </div>
+
+      <input class="button-primary" type="submit" value="Continue">
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>COVID-19 Doctor</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+  <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+  <link rel="stylesheet" href="{% static "css/clinic.css" %}">
+
+  <link rel="icon" type="image/png" href="{% static "images/favicon.png" %}">
+
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

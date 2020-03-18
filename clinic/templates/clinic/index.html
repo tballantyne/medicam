@@ -1,0 +1,68 @@
+{% extends "clinic/base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="container">
+
+  <div class="row top">
+    <div class="nine columns">
+      <h2><a href="{% url 'index' %}">COVID-19 Doctor</a></h2>
+      <p>
+        This website is an online Coronavirus clinic.
+        Video chat live with volunteers who can help.
+      </p>
+    </div>
+    <div class="three columns language">
+      <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{% url 'index' %}">
+        Language:
+        <select name="language" onchange="this.form.submit()">
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% get_language_info_list for LANGUAGES as languages %}
+          {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+              {{ language.name_local }}
+            </option>
+          {% endfor %}
+        </select>
+      </form>
+    </div>
+  </div>
+
+  <div class="row start-buttons">
+    <div class="one-half column start-button patient">
+      <a href="{% url 'disclaimer' %}">
+        <h4>If you need help with Coronavirus</h4>
+        <h5>Click here to video chat with someone who can help</h5>
+        <p>You don't need a camera, just a microphone.</p>
+        <p>Estimated wait time: unknown</p>
+      </a>
+    </div>
+
+    <div class="one-half column start-button doctor">
+      <a href="{% url 'volunteer' %}">
+        <h4>Healthcare Professionals and Students</h4>
+        <h5>Click here to volunteer now</h5>
+        <ol>
+          <li>Upload proof of credentials</li>
+          <li>Select languages spoken</li>
+          <li>Confirm COVID-19 knowledge</li>
+        </ol>
+      </a>
+    </div>
+  </div>
+
+  <div class="row footer">
+    <div class="nine columns">
+      Development help is urgently needed - <a href="#">join us on Slack</a> or <a href="mailto:contact@doc19.org">email us</a>
+    </div>
+    <div class="three columns terms">
+      <a href="#">Privacy and Terms</a>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

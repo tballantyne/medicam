@@ -1,0 +1,8 @@
+boto3
+dj-database-url
+django-heroku
+django-ipware
+django-sort-order-field
+django-storages
+django-widget-tweaks
+twilio

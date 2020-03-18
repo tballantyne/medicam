@@ -1,0 +1,33 @@
+{% extends "clinic/base.html" %}
+{% load static %}
+
+{% block head %}
+<script src="//media.twiliocdn.com/sdk/js/video/releases/2.0.0/twilio-video.min.js"></script>
+<script src="{% static 'js/video.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container session patient">
+  <div class="row top">
+    <h2>COVID-19 Doctor</h2>
+    <div class="row">
+        <div class="u-pull-right">
+            <form action="{% url 'finish' %}" method="post">
+                {% csrf_token %}
+                <input class="button" type="submit" value="Finish">
+            </form>
+        </div>
+        <div>Connected to <b>{{ doctor.name }}</b></div>
+    </div>
+    <div id="remote-media"></div>
+  </div>
+</div>
+
+{{ video_data|json_script:"video-data" }}
+<script>
+var data = JSON.parse(document.getElementById('video-data').textContent);
+initVideo(data.token, data.room);
+</script>
+
+{% endblock %}
