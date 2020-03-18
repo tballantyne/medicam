@@ -5,4 +5,5 @@ django-ipware
 django-sort-order-field
 django-storages
 django-widget-tweaks
+gunicorn
 twilio
