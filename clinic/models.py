@@ -1,5 +1,5 @@
 from django.db import models
-import uuid
+import os, uuid
 
 class Participant(models.Model):
 	uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
@@ -32,7 +32,7 @@ class SelfCertificationQuestion(models.Model):
 		return self.text
 
 def upload_filename(instance, filename):
-	ext = filename.split('.')[-1]
+	ext = os.path.splitext(filename)[-1].lower()
 	return 'credentials/{}.{}'.format(instance.uuid, ext)
 
 class Doctor(Participant):

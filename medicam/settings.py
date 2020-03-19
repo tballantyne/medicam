@@ -146,6 +146,8 @@ AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
 AWS_DEFAULT_ACL = None
 
+ALLOWED_UPLOAD_EXTENSIONS = ['.doc', '.docx', '.odt', '.rtf', '.pdf', '.jpg', '.png', '.gif', '.tif', '.tiff']
+
 
 # Twilio
 
