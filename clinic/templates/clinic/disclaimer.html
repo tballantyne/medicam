@@ -3,16 +3,15 @@
 
 <div class="container disclaimer">
   <div class="row top">
-    <h2><a href="{% url 'index' %}">COVID-19 Doctor</a></h2>
+    <h2><a href="{% url 'index' %}">COVID-19 Clinic</a></h2>
     <p>Please read and acknowledge the following:</p>
     <ul>
       <li>This website is provided in good faith as a last resort for those who are otherwise unable to obtain help and advice during this unprecedented public health emergency.</li>
       <li>This website is not a healthcare provider, and it does not connect you to licensed healthcare providers. If you have a medical emergency, please call a doctor or go to the emergency room.</li>
-      <li>The website is named &ldquo;COVID-19 Doctor&rdquo; to help the site appear in relevant search results; it does not necessarily mean you will see a doctor.</li>
+      <li>The website is named &ldquo;COVID-19 Clinic&rdquo; to help the site appear in relevant search results; it does not necessarily mean you will see a doctor.</li>
       <li>Volunteers are minimally verified and may not be licensed in your jurisdiction. Any advice you receive from volunteers is taken at your own risk.</li>
       <li>Volunteers may take brief notes about the presenting complaint, symptoms, and management plan. These notes will be stored according to industry best practice. Information will not be shared unless required by law.</li>
       <li>Your name or other personally identifying information will not be stored. Your IP address will be stored to help protect our systems.</li>
-      <li>This service may not fully adhere to HIPAA Privacy, Security and Breach Notification rules, although every effort will be made to do so.</li>
     </ul>
     <form action="{% url 'disclaimer' %}" method="post">
       {% csrf_token %}

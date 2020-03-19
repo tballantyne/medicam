@@ -81,7 +81,7 @@ ul.errorlist li {
 }
 
 .banner {
-	padding: 10px;
+	padding: 10px 15px;
 	background-color: #ededfc;
 }
 
@@ -101,4 +101,10 @@ ul.errorlist li {
 
 #local-media video {
 	width: 25%;
+}
+
+#remote-media * {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
