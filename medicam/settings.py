@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['localhost', 'doc19.org']
+ALLOWED_HOSTS = ['localhost', '192.168.1.30', 'doc19.org']
 
 
 # Application definition
@@ -119,7 +119,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 LANGUAGES = [
   ('en', _('English')),
