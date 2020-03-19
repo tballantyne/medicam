@@ -55,7 +55,7 @@ class Doctor(Participant):
 
 	@property
 	def in_session(self):
-		return self.patient_set.filter(session_started__isnull=True, session_ended__isnull=False).count() > 0
+		return self.patient_set.filter(session_started__isnull=False, session_ended__isnull=True).count() > 0
 
 class Patient(Participant):
 	language = models.ForeignKey(Language, models.PROTECT)

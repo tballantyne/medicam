@@ -3,7 +3,7 @@ h2 a {
 	color: black;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 500px) {
 	div.language, div.terms {
 		text-align: right;
 	}

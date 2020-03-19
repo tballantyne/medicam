@@ -63,7 +63,7 @@ def consultation(request):
 	patient_id = request.COOKIES.get('patient_id')
 	if patient_id:
 		try:
-			patient = Patient.objects.get(uuid=patient_id)
+			patient = Patient.objects.get(uuid=patient_id, session_ended__isnull=True)
 		except Patient.DoesNotExist:
 			response = redirect('consultation')
 			response.delete_cookie('patient_id')
