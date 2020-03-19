@@ -10,11 +10,11 @@ function initVideo(token, room) {
 			participant.tracks.forEach(publication => {
 				if (publication.isSubscribed) {
 					const track = publication.track;
-					document.getElementById('remote-media').replaceChild(track.attach());
+					document.getElementById('remote-media').appendChild(track.attach());
 				}
 			});
 			participant.on('trackSubscribed', track => {
-				document.getElementById('remote-media').replaceChild(track.attach());
+				document.getElementById('remote-media').appendChild(track.attach());
 			});
 		});
 	}, error => {

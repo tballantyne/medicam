@@ -22,7 +22,7 @@ class Language(models.Model):
 		return self.name
 
 class SelfCertificationQuestion(models.Model):
-	sort_order = models.PositiveIntegerField()
+	sort_order = models.PositiveIntegerField(default=0)
 	text = models.TextField()
 
 	class Meta:
