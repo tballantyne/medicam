@@ -136,6 +136,7 @@ def finish(request):
 
 	patient_id = request.COOKIES.get('patient_id')
 	if patient_id:
+		response.delete_cookie('patient_id')
 		try:
 			patient = Patient.objects.get(uuid=patient_id)
 			patient.session_ended = datetime.now()
