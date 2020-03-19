@@ -1,7 +1,6 @@
 boto3
 dj-database-url
 django-ipware
-django-sort-order-field
 django-storages
 django-widget-tweaks
 gunicorn

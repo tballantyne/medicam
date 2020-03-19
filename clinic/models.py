@@ -1,5 +1,4 @@
 from django.db import models
-from sort_order_field import SortOrderField
 import uuid
 
 class Participant(models.Model):
@@ -23,7 +22,7 @@ class Language(models.Model):
 		return self.name
 
 class SelfCertificationQuestion(models.Model):
-	sort_order = SortOrderField()
+	sort_order = models.PositiveIntegerField()
 	text = models.TextField()
 
 	class Meta:
