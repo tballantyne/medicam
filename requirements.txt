@@ -5,4 +5,5 @@ django-sort-order-field
 django-storages
 django-widget-tweaks
 gunicorn
+psycopg2
 twilio
