@@ -93,13 +93,13 @@ ul.errorlist li {
 	position: relative;
 }
 
-#local-media {
+.session #local-media {
 	position: absolute;
 	top: 10px;
 	left: 10px;
 }
 
-#local-media video {
+.session #local-media video {
 	width: 25%;
 }
 
@@ -108,4 +108,8 @@ ul.errorlist li {
 	top: 0;
 	left: 0;
 	max-width: 100%;
+}
+
+.volunteer #local-media video {
+	max-width: 300px;
 }

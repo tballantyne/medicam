@@ -47,3 +47,9 @@ function handleParticipant(participant) {
 		document.getElementById('remote-media').appendChild(track.attach());
 	});
 }
+
+function showPreview() {
+	Twilio.Video.createLocalVideoTrack().then(track => {
+		document.getElementById('local-media').appendChild(track.attach());
+	});
+}

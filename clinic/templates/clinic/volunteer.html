@@ -1,5 +1,11 @@
 {% extends "clinic/base.html" %}
-{% load widget_tweaks %}
+{% load static widget_tweaks %}
+
+{% block head %}
+<script src="//media.twiliocdn.com/sdk/js/video/releases/2.0.0/twilio-video.min.js"></script>
+<script src="{% static 'js/video.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
 <div class="container volunteer">
@@ -51,8 +57,9 @@
 
       <div class="row test-cam">
         <div class="six columns">
-          <label for="test-cam">Check your webcam:</label>
-          <input class="button" type="button" value="Test camera">
+          <label>Check your webcam:</label>
+          <input id="test-cam" class="button" type="button" value="Test camera" onclick="this.style.display='none'; showPreview()">
+          <div id="local-media"></div>
         </div>
       </div>
 
