@@ -3,7 +3,7 @@
 
 <div class="container disclaimer">
   <div class="row top">
-    <h2><a href="{% url "index" %}">COVID-19 Doctor</a></h2>
+    <h2><a href="{% url 'index' %}">COVID-19 Doctor</a></h2>
     <p>Please read and acknowledge the following:</p>
     <ul>
       <li>This website is provided in good faith as a last resort for those who are otherwise unable to obtain help and advice during this unprecedented public health emergency.</li>
@@ -14,7 +14,7 @@
       <li>Your name or other personally identifying information will not be stored. Your IP address will be stored to help protect our systems.</li>
       <li>This service may not fully adhere to HIPAA Privacy, Security and Breach Notification rules, although every effort will be made to do so.</li>
     </ul>
-    <form action="{% url "disclaimer" %}" method="post">
+    <form action="{% url 'disclaimer' %}" method="post">
       {% csrf_token %}
       <input class="button-primary" type="submit" value="I agree">
     </form>
