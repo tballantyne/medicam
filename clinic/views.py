@@ -52,13 +52,25 @@ def disclaimer(request):
 def consultation(request):
 	doctor_id = request.COOKIES.get('doctor_id')
 	if doctor_id:
-		return consultation_doctor(request, Doctor.objects.get(uuid=doctor_id))
+		try:
+			doctor = Doctor.objects.get(uuid=doctor_id)
+		except Doctor.DoesNotExist:
+			response = redirect('consultation')
+			response.delete_cookie('doctor_id')
+			return response
+		return consultation_doctor(request, doctor)
 
 	patient_id = request.COOKIES.get('patient_id')
 	if patient_id:
-		return consultation_patient(request, Patient.objects.get(uuid=patient_id))
-	else:
-		return redirect('disclaimer')
+		try:
+			patient = Patient.objects.get(uuid=patient_id)
+		except Patient.DoesNotExist:
+			response = redirect('consultation')
+			response.delete_cookie('patient_id')
+			return response
+		return consultation_patient(request, patient)
+
+	return redirect('disclaimer')
 
 def get_twilio_jwt(identity, room):
 	token = AccessToken(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_API_KEY, settings.TWILIO_API_SECRET, identity=identity)

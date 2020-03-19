@@ -79,3 +79,12 @@ ul.errorlist li {
 	display: inline-block;
 	padding: 2px 5px;
 }
+
+.banner {
+	padding: 10px;
+	background-color: #ededfc;
+}
+
+.banner h5, .banner p {
+	margin-bottom: 5px;
+}
