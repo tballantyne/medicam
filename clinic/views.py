@@ -41,7 +41,8 @@ def disclaimer(request):
 
 	if request.method == 'POST':
 		lang = Language.objects.get(ietf_tag=request.LANGUAGE_CODE)
-		patient = Patient(ip_address=get_client_ip(request)[0], language=lang)
+		video = request.POST.get('video') == '1'
+		patient = Patient(ip_address=get_client_ip(request)[0], language=lang, enable_video=video)
 		patient.save()
 		response = redirect('consultation')
 		response.set_cookie('patient_id', patient.uuid, max_age=ONE_MONTH)
@@ -115,7 +116,7 @@ def consultation_patient(request, patient):
 			'video_data': {
 				'token': patient.twilio_jwt,
 				'room': str(patient.doctor.uuid),
-				'enable_local_video': True,
+				'enable_local_video': patient.enable_video,
 			},
 		})
 

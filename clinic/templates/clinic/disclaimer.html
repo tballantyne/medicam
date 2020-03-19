@@ -15,6 +15,10 @@
     </ul>
     <form action="{% url 'disclaimer' %}" method="post">
       {% csrf_token %}
+      <label for="enable-video">
+        <input type="checkbox" id="enable-video" name="video" value="1" checked>
+        <span class="label-body">Enable my camera</span>
+      </label>
       <input class="button-primary" type="submit" value="I agree">
     </form>
   </div>

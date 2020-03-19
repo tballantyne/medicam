@@ -63,6 +63,7 @@ class Patient(Participant):
 	session_started = models.DateTimeField(blank=True, null=True)
 	session_ended = models.DateTimeField(blank=True, null=True)
 	notes = models.TextField(blank=True)
+	enable_video = models.BooleanField()
 
 	@property
 	def in_session(self):
