@@ -7,3 +7,4 @@ django-widget-tweaks
 gunicorn
 psycopg2
 twilio
+whitenoise
