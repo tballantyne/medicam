@@ -113,3 +113,7 @@ ul.errorlist li {
 .volunteer #local-media video {
 	max-width: 300px;
 }
+
+.footer .columns {
+	margin-bottom: 10px;
+}
