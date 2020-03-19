@@ -117,5 +117,30 @@ def consultation_patient(request, patient):
 			},
 		})
 
+@transaction.atomic
 def finish(request):
-	pass
+	response = redirect('index')
+	if request.method != 'POST':
+		return response
+
+	doctor_id = request.COOKIES.get('doctor_id')
+	if doctor_id:
+		try:
+			doctor = Doctor.objects.get(uuid=doctor_id)
+			patient = doctor.patient
+			if patient:
+				patient.session_ended = datetime.now()
+				patient.save()
+		except Doctor.DoesNotExist:	
+			pass
+
+	patient_id = request.COOKIES.get('patient_id')
+	if patient_id:
+		try:
+			patient = Patient.objects.get(uuid=patient_id)
+			patient.session_ended = datetime.now()
+			patient.save()
+		except Patient.DoesNotExist:
+			pass
+
+	return response

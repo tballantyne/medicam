@@ -12,7 +12,7 @@ class Participant(models.Model):
  		abstract = True
 
 class Language(models.Model):
-	ietf_tag = models.CharField(max_length=5)
+	ietf_tag = models.CharField(max_length=5, unique=True)
 	name = models.CharField(max_length=30)
 
 	class Meta:
