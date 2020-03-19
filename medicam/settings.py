@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['doc19.org']
 
 
 # Application definition
@@ -143,9 +143,3 @@ AWS_DEFAULT_ACL = None
 TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
 TWILIO_API_KEY = os.getenv('TWILIO_API_KEY')
 TWILIO_API_SECRET = os.getenv('TWILIO_API_SECRET')
-
-
-# Dokku
-
-import django_heroku
-django_heroku.settings(locals())
