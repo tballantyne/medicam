@@ -31,7 +31,7 @@
 {{ video_data|json_script:"video-data" }}
 <script>
 var data = JSON.parse(document.getElementById('video-data').textContent);
-initVideo(data.token, data.room);
+initVideo(data.token, data.room, data.enable_local_video);
 </script>
 
 {% endblock %}

@@ -1,8 +1,8 @@
-function initVideo(token, room) {
+function initVideo(token, room, enableLocalVideo) {
 	Twilio.Video.connect(token, {
 		name: room,
 		audio: true,
-		video: true,
+		video: enableLocalVideo,
 		preferredVideoCodecs: ['VP8', 'H264']
 	}).then(room => {
 		console.log(`Successfully joined a Room: ${room}`);

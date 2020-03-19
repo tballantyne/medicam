@@ -102,6 +102,7 @@ def consultation_doctor(request, doctor):
 		'video_data': {
 			'token': doctor.twilio_jwt,
 			'room': str(doctor.uuid),
+			'enable_local_video': True,
 		},
 	})
 
@@ -114,6 +115,7 @@ def consultation_patient(request, patient):
 			'video_data': {
 				'token': patient.twilio_jwt,
 				'room': str(patient.doctor.uuid),
+				'enable_local_video': True,
 			},
 		})
 
