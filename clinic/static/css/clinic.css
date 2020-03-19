@@ -107,4 +107,5 @@ ul.errorlist li {
 	position: absolute;
 	top: 0;
 	left: 0;
+	max-width: 100%;
 }
