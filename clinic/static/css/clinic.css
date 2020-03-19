@@ -88,3 +88,17 @@ ul.errorlist li {
 .banner h5, .banner p {
 	margin-bottom: 5px;
 }
+
+.media-container {
+	position: relative;
+}
+
+#local-media {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+#local-media video {
+	width: 25%;
+}
