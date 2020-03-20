@@ -87,8 +87,8 @@ def consultation_doctor(request, doctor):
 	doctor.save()
 
 	if not doctor.patient:
-		try:
-			patient = Patient.objects.order_by('id').get(language__in=doctor.languages.all(), session_started__isnull=True)
+		patient = Patient.objects.order_by('id').filter(language__in=doctor.languages.all(), session_started__isnull=True).first()
+		if patient:
 			patient.doctor = doctor
 			patient.session_started = datetime.now()
 			patient.twilio_jwt = get_twilio_jwt(identity=str(patient.uuid), room=str(doctor.uuid))
@@ -96,7 +96,7 @@ def consultation_doctor(request, doctor):
 			doctor.twilio_jwt = get_twilio_jwt(identity=str(doctor.uuid), room=str(doctor.uuid))
 			doctor.save()
 			return redirect('consultation')
-		except Patient.DoesNotExist:
+		else:
 			return render(request, 'clinic/waiting_doctor.html')
 
 	return render(request, 'clinic/session_doctor.html', context={
